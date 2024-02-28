@@ -98,10 +98,38 @@ const verifyTokenAndUserAuthorization = async (req, res, next) => {
     });
 }
 
+const verifyTokenAndUserPostAuthorization = async (req, res, next) => {
+    verifyAccessToken(req, res, () => {
+      if (req.user.id === req.body.userId || req.user.isAdmin) {
+        next();
+      } else {
+        return res.status(403).json("You're not allowed to do that!");
+      }
+    });
+}
+
+const verifyTokenAndCommentAuthorization = async (req, res, next) => {
+    middlewareController.verifyToken(req, res, () => {
+      console.log("req.user.id: " + req.user.id);
+      console.log("ownerId: :" + req.body.ownerId);
+      if (
+        req.user.id === req.body.ownerId ||
+        req.user.isAdmin ||
+        req.user.id === req.body.postId
+      ) {
+        next();
+      } else {
+        return res.status(403).json("You're not allowed to do that!");
+      }
+    });
+}
+
 module.exports = {
     signAcessToken,
     verifyAccessToken,
     signRefreshToken,
     verifyRefreshToken,
-    verifyTokenAndUserAuthorization
+    verifyTokenAndUserAuthorization,
+    verifyTokenAndUserPostAuthorization,
+    verifyTokenAndCommentAuthorization
 }

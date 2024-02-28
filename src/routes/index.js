@@ -1,6 +1,7 @@
 const authRoute = require("../routes/auth");
 const postRoute = require("../routes/post"); 
 const userRoute = require("../routes/user");
+const newsRoute = require("../routes/news");
 
 const routes = (app) => {
     app.get("/v1/", (req,res)=>{
@@ -9,6 +10,7 @@ const routes = (app) => {
     app.use("/v1/auth", authRoute);
     app.use("/v1/post", postRoute);
     app.use("/v1/users", userRoute);
+    app.use("/v1/news", newsRoute);
 }
 
 module.exports = routes
