@@ -88,9 +88,20 @@ const verifyRefreshToken = async (refreshToken) => {
     } )
 }
 
+const verifyTokenAndUserAuthorization = async (req, res, next) => {
+    verifyAccessToken(req, res, () => {
+      if (req.user.id === req.params.id.trim() || req.user.isAdmin) {
+        next();
+      } else {
+        return res.status(403).json("You're not allowed to do that!");
+      }
+    });
+}
+
 module.exports = {
     signAcessToken,
     verifyAccessToken,
     signRefreshToken,
-    verifyRefreshToken
+    verifyRefreshToken,
+    verifyTokenAndUserAuthorization
 }
