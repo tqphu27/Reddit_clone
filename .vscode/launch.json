@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program with nodemon",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+            "runtimeArgs": [
+                "${workspaceFolder}/src/index.js"
+            ],
+            "restart": true,
+            "console": "integratedTerminal"
+        }
+    ]
+}
