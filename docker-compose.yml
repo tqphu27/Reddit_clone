@@ -1,0 +1,19 @@
+version: '3'
+services:
+  node_app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_URL: mongodb://mongo:27017/reddat
+    depends_on:
+      - mongo
+      - redis
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+  redis:
+    image: redis:6.2.5-alpine
+    ports:
+      - "6380:6379"

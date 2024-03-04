@@ -3,7 +3,7 @@ const Post = require("../models/Post");
 
 const bcrypt = require("bcrypt");
 const authController = require("./authController");
-const {signAcessToken, signRefreshToken, verifyRefreshToken} = require("../utils/jwt_service")
+const {signAcessToken, signRefreshToken, verifyRefreshToken} = require("../middleware/authMiddleware")
 
 const userController = {
     getUser: async (req, res) => {

@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const {userValidate} = require('../utils/validation')
-const {signAcessToken, signRefreshToken, verifyRefreshToken} = require("../utils/jwt_service")
+const {signAcessToken, signRefreshToken, verifyRefreshToken} = require("../middleware/authMiddleware")
 const client = require('../utils/connections_redis')
 const createError = require('http-errors')
 

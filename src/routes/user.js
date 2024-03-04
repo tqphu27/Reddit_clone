@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {verifyTokenAndUserAuthorization} = require('../utils/jwt_service')
+const {verifyTokenAndUserAuthorization} = require("../middleware/authMiddleware")
 const userController = require("../controllers/userController");
 
 //GET A USER

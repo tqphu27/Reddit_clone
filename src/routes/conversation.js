@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {verifyAccessToken} = require('../utils/jwt_service')
+const {verifyAccessToken} = require("../middleware/authMiddleware")
 const conversationController = require("../controllers/conversationController");
 
 //CREATE CONVERSATION

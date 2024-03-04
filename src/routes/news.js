@@ -1,4 +1,4 @@
-const {verifyAccessToken} = require('../utils/jwt_service')
+const {verifyAccessToken} = require("../middleware/authMiddleware")
 const newsController = require("../controllers/newsController");
 
 const router = require("express").Router();

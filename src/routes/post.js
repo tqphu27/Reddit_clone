@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router()
 const Post = require("../models/Post");
 const upload = require("../utils/multer");
-const {verifyAccessToken, verifyTokenAndUserPostAuthorization, verifyTokenAndCommentAuthorization} = require('../utils/jwt_service')
+const {verifyAccessToken, verifyTokenAndUserPostAuthorization, verifyTokenAndCommentAuthorization} = require("../middleware/authMiddleware")
 const postController = require("../controllers/postController");
 const commentController = require("../controllers/commentController");
 
